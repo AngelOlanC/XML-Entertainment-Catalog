@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- RAIZ -->
+<!ELEMENT catalogo_entretenimiento (peliculas?, series?)>
+
+<!-- PELICULAS -->
+<!ELEMENT peliculas (pelicula+)>
+
+<!ELEMENT pelicula (titulo, descripcion, pais_origen, lenguaje, fecha_lanzamiento, generos, productoras, creditos)>
+<!ELEMENT duracion (#PCDATA)>
+<!ATTLIST pelicula codigo ID #REQUIRED>
+<!ATTLIST pelicula duracion CDATA #REQUIRED>
+<!ATTLIST pelicula presupuesto CDATA #IMPLIED>
+<!ATTLIST pelicula ganancia CDATA #IMPLIED>
+<!ATTLIST pelicula calificacion CDATA #IMPLIED>
+
+<!ELEMENT productoras (productora+)>
+<!ELEMENT productora (nombre, pais_origen)>
+
+<!-- SERIES -->
+<!ELEMENT series (serie+)>
+
+<!ELEMENT serie (titulo, descripcion, pais_origen, lenguaje, fecha_lanzamiento, temporadas, autores, generos, creditos)>
+<!ATTLIST serie codigo ID #REQUIRED>
+
+<!ELEMENT temporadas (temporada+)>
+<!ELEMENT temporada (nombre, descripcion, fecha_lanzamiento)>
+<!ATTLIST temporada num_episodios CDATA #REQUIRED>
+<!ATTLIST temporada calificacion CDATA #IMPLIED>
+
+<!ELEMENT autores (autor+)>
+<!ELEMENT autor (nombre, genero)>
+
+<!-- ELEMENTOS COMPARTIDOS -->
+<!ELEMENT fecha_lanzamiento (anio, mes, dia)>
+<!ELEMENT dia (#PCDATA)>
+<!ELEMENT mes (#PCDATA)>
+<!ELEMENT anio (#PCDATA)>
+
+<!ELEMENT titulo (#PCDATA)>
+
+<!ELEMENT descripcion (#PCDATA)>
+
+<!ELEMENT generos (genero+)>
+<!ELEMENT genero (#PCDATA)>
+
+<!ELEMENT lenguaje (#PCDATA)>
+
+<!ELEMENT nombre (#PCDATA)>
+
+<!ELEMENT pais_origen (#PCDATA)>
+
+<!ELEMENT creditos (elenco, produccion)>
+
+<!ELEMENT elenco (actor)+>
+<!ELEMENT actor (nombre, personaje)>
+<!ELEMENT personaje (#PCDATA)>
+
+<!ELEMENT produccion (operario)+>
+<!ELEMENT operario (nombre, departamento, puesto)>
+<!ELEMENT departamento (#PCDATA)>
+<!ELEMENT puesto (#PCDATA)>
